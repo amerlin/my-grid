@@ -2,6 +2,9 @@ import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import { getProductsAsync, ProductData } from './Products';
 import { ProductList } from './ProductsList';
+import { GridDeleteButton} from './GridDeleteButton';
+import { FaBeer } from 'react-icons/fa';
+
 // @ts-ignore
 import cellEditFactory from 'react-bootstrap-table2-editor';
 
@@ -68,8 +71,20 @@ export const Grid = () => {
         text: 'Total',
         editable: false,
       },
-
+        {
+            dataField: 'Action',
+            isDummyField: true,
+            text: '',
+            editable:false,
+            formatter: (cellContent:string, row: ProductData) => {
+                return (<GridDeleteButton id={row.productId}/>);
+            }
+        }
      ];
+
+ const Logga = (row: ProductData) =>{
+     console.log(row.productId);
+ }
 
   const updateTotal = () => {
         var t =0;
