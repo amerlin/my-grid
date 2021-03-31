@@ -1,7 +1,6 @@
 import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import { getProductsAsync, ProductData } from './Products';
-import { ProductList } from './ProductsList';
 import { GridDeleteButton} from './GridDeleteButton';
 import { FaBeer } from 'react-icons/fa';
 
