@@ -13,8 +13,8 @@ export const Grid = () => {
     
         let newArray = products.concat( {
         productId: 100,
-        description: "nuovo",
-        barcode: "barNuovo",
+        description: "Nuovo prodotto",
+        barcode: "1234567891012",
         price: 10,
         total: 10,
         qta: 1

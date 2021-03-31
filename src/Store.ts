@@ -9,12 +9,12 @@ export interface CustomerState {
     readonly searched: CustomerData[];
 }
 
-//State
+//Application State
 export interface AppState {
     readonly ZmagStatusStore: CustomerState;
 }
 
-//Initial staate
+//Initial state for application
 const initialZMagState: CustomerState = {
     loading: false,
     customers: [],
@@ -62,7 +62,7 @@ export const searchedCustomersAction = (questions: CustomerData[]) =>
     questions,
 } as const);
 
-//type definition
+//ACTION TYPES DEFINITION
 type ZmagActions =
     | ReturnType<typeof gettingCustomersAction>
     | ReturnType<typeof gotCustomersAction>
@@ -86,7 +86,7 @@ const zmagReducer = (
         case GOTCUSTOMERS: {
             return {
                 ...state,
-                unanswered: action.customers,
+                customers: action.customers,
                 loading: false,
             };
         }
@@ -122,10 +122,12 @@ const zmagReducer = (
     return state;
 };
 
+//ROOT REDUCER
 const rootReducer = combineReducers<AppState>({
     ZmagStatusStore: zmagReducer,
   });
 
+//CONFIGURE STORE
 export function configureStore(): Store<AppState> {
     const store = createStore(rootReducer, undefined);
     return store;
