@@ -1,5 +1,6 @@
 export interface CustomerData {
     id: number, 
+    erpId : number,
     descr1: string;
     descr2: string;
     address: string;
@@ -11,6 +12,7 @@ export interface CustomerData {
 const customers: CustomerData[] = [
     {
         id: 1,
+        erpId: 0,
         descr1: "customer1",
         descr2: "description2",
         address: "",
@@ -25,7 +27,8 @@ const customers: CustomerData[] = [
         address: "",
         city: "",
         zip: "",
-        vat: ""
+        vat: "",
+        erpId:0
     },
     {
         id: 3,
@@ -34,7 +37,8 @@ const customers: CustomerData[] = [
         address: "",
         city: "",
         zip: "",
-        vat: ""
+        vat: "",
+        erpId:0
     },
     {
         id: 4,
@@ -43,7 +47,8 @@ const customers: CustomerData[] = [
         address: "",
         city: "",
         zip: "",
-        vat: ""
+        vat: "",
+        erpId:0
     }
 ];
 
