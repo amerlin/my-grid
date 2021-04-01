@@ -48,6 +48,16 @@ Promise<ProductData[]> =>{
     return products;
 }
 
+export const getProductsRest = async(): Promise<ProductData[]> =>{
+    let products: ProductData[] = [];
+    const response = await fetch('https://zmag.azurewebsites.net/api/Products/GetAllFake',);
+    products = await response.json();
+    return products.map((product)=>({
+        ...product, 
+        description: product.description
+    }));
+}
+
 export const getProducts = (): ProductData[] =>{
     return products;
 }
